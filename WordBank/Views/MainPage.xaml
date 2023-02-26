@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="WordBank.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:WordBank.ViewModels;assembly=WordBank"
+    Title="WordBank">
+    <VerticalStackLayout
+        HorizontalOptions="Fill"
+        Spacing="10"
+        VerticalOptions="Start">
+        <Label
+            FontSize="Header"
+            HorizontalOptions="Center"
+            Text="Select page" />
+        <Button
+            BackgroundColor="{StaticResource Primary}"
+            Command="{Binding NavigateCommand}"
+            CommandParameter="WordsPage"
+            CornerRadius="23"
+            FontSize="Title"
+            HeightRequest="46"
+            HorizontalOptions="Center"
+            Text="Words"
+            WidthRequest="365" />
+    </VerticalStackLayout>
+</ContentPage>

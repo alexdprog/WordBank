@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="WordBank.Views.WordsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:viewModels="clr-namespace:WordBank.ViewModels;assembly=WordBank"
+    Title="Words">
+    <StackLayout
+        Padding="{StaticResource ApplicationRootLayoutThicknes}"
+        HorizontalOptions="StartAndExpand"
+        VerticalOptions="Fill">
+        <ListView
+            HasUnevenRows="True"
+            IsGroupingEnabled="True"
+            ItemsSource="{Binding WordsList}"
+            SelectionMode="None"
+            SeparatorColor="Gray"
+            SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="0,4,0,4">
+                            <Grid ColumnDefinitions="1*,40,40" ColumnSpacing="8">
+                                <Label
+                                    Grid.Column="0"
+                                    BackgroundColor="Transparent"
+                                    Style="{StaticResource DataLabelStyle}"
+                                    Text="{Binding WordName}"
+                                    VerticalOptions="Center" />
+                                <Image
+                                    Grid.Column="1"
+                                    HorizontalOptions="Center"
+                                    Source="edit.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="24">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:WordsViewModel}}, Path=EditCommand}" CommandParameter="{Binding .}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Image
+                                    Grid.Column="2"
+                                    HorizontalOptions="Center"
+                                    Source="delete.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="24">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:WordsViewModel}}, Path=DeleteCommand}" CommandParameter="{Binding .}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OnExpand}" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                            <VerticalStackLayout Padding="8,0,0,0" IsVisible="{Binding Expanded}">
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label
+                                        Style="{StaticResource SubDataLabelStyle}"
+                                        Text="Description: "
+                                        VerticalOptions="Center"
+                                        WidthRequest="80" />
+                                    <Label
+                                        Grid.Column="1"
+                                        BackgroundColor="Transparent"
+                                        Style="{StaticResource DataLabelStyle}"
+                                        Text="{Binding Description}"
+                                        VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label
+                                        Style="{StaticResource SubDataLabelStyle}"
+                                        Text="Translation: "
+                                        VerticalOptions="Center"
+                                        WidthRequest="80" />
+                                    <Label
+                                        Grid.Column="1"
+                                        BackgroundColor="Transparent"
+                                        Style="{StaticResource DataLabelStyle}"
+                                        Text="{Binding Translation}"
+                                        VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label
+                                        Style="{StaticResource SubDataLabelStyle}"
+                                        Text="Sample: "
+                                        VerticalOptions="Center"
+                                        WidthRequest="80" />
+                                    <Label
+                                        Grid.Column="1"
+                                        BackgroundColor="Transparent"
+                                        Style="{StaticResource DataLabelStyle}"
+                                        Text="{Binding Sample}"
+                                        VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="24,4,0,0" VerticalOptions="FillAndExpand">
+                            <Label
+                                BackgroundColor="Transparent"
+                                FontSize="14"
+                                HorizontalOptions="Start"
+                                Text="{Binding Name}" />
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+        </ListView>
+        <ImageButton
+            Margin="0,16,0,16"
+            Aspect="AspectFit"
+            BackgroundColor="Transparent"
+            Command="{Binding AddCommand}"
+            HeightRequest="48"
+            HorizontalOptions="Center"
+            Source="add_circle.png"
+            WidthRequest="48">
+            <ImageButton.Shadow>
+                <Shadow
+                    Brush="Gray"
+                    Opacity="{AppThemeBinding Light='0.8',
+                                              Dark='0.0'}"
+                    Radius="48"
+                    Offset="8,8" />
+            </ImageButton.Shadow>
+        </ImageButton>
+    </StackLayout>
+
+</ContentPage>
