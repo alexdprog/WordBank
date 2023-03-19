@@ -1,34 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 
-<Shell
-    x:Class="WordBank.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:WordBank"
-    xmlns:views="clr-namespace:WordBank.Views"
-    Shell.FlyoutBehavior="Flyout">
-    <Shell.FlyoutHeader>
-        <Label
-            Padding="{OnPlatform Default='4,0',
-                                 WinUI='8,6,0,8',
-                                 iOS='4, 100, 4, 0',
-                                 MacCatalyst='4, 100, 4, 0'}"
-            BackgroundColor="{StaticResource Primary}"
-            FontSize="24"
-            Opacity="0.8"
-            Text="WordBank"
-            TextColor="White" />
-    </Shell.FlyoutHeader>
-    <FlyoutItem Title="Words" Icon="school.png">
-        <ShellContent
-            Title="Words"
-            ContentTemplate="{DataTemplate views:WordsPage}"
-            Route="WordsPage" />
-    </FlyoutItem>
-    <FlyoutItem Title="About" Icon="Info.png">
-        <ShellContent
-            Title="About"
-            ContentTemplate="{DataTemplate views:AboutPage}"
-            Route="AboutPage" />
-    </FlyoutItem>
-</Shell>
+<Shell x:Class="WordBank.AppShell" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:WordBank" xmlns:views="clr-namespace:WordBank.Views" Shell.FlyoutBehavior="Flyout">
+<Shell.FlyoutHeader><StackLayout><Label Padding="{OnPlatform Default='4,0',WinUI='8,6,0,8',iOS='4, 100, 4, 0',MacCatalyst='4, 100, 4, 0'}" BackgroundColor="{ StaticResource Primary}" FontSize="24" Opacity="0.8" Text="WordBank" TextColor="White" /><Label x:Name="LabelVersion" Padding="{OnPlatform Default='4,0',WinUI='8,6,0,8',iOS='4, 100, 4, 0',MacCatalyst='4, 100, 4, 0'}" BackgroundColor="{ StaticResource Primary}" FontSize="24" Opacity="0.8" Text="Ver" TextColor="White" /></StackLayout></Shell.FlyoutHeader><FlyoutItem Icon="school.png" Title="Words"><ShellContent Title="Words" ContentTemplate="{DataTemplate views:WordsPage}" Route="WordsPage" /></FlyoutItem><FlyoutItem Icon="school.png" Title="Learned"><ShellContent Title="Learned" ContentTemplate="{DataTemplate views:WordsArhivePage}" Route="WordsArhivePage" /></FlyoutItem><FlyoutItem Icon="Info.png" Title="About"><ShellContent Title="About" ContentTemplate="{DataTemplate views:AboutPage}" Route="AboutPage" /></FlyoutItem></Shell>

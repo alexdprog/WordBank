@@ -8,5 +8,6 @@ public partial class AppShell : Shell
 		InitializeComponent();
 		Routing.RegisterRoute(nameof(WordsPage), typeof(WordsPage));
 		Routing.RegisterRoute(nameof(WordsAddPage), typeof(WordsAddPage));
-				}
+				LabelVersion.Text = "Ver " + AppInfo.Current.VersionString;
+	}
 }

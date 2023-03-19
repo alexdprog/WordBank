@@ -12,6 +12,7 @@ namespace WordBank.Models
         private string _description;
         private string _translation;
         private string _sample;
+        private bool _done;
             public int WordId { get; set; }        public string WordName         {
             get => _wordname; 
             set => SetProperty(ref _wordname, value); 
@@ -24,7 +25,10 @@ namespace WordBank.Models
         }         public string Sample         {
             get => _sample; 
             set => SetProperty(ref _sample, value); 
-        }         public DateTime Time { get; set; }            private bool _expanded = false;
+        }         public DateTime Time { get; set; }        public bool Done         {
+            get => _done; 
+            set => SetProperty(ref _done, value); 
+        }             private bool _expanded = false;
     [NotMapped]
     public bool Expanded { get => _expanded; set => SetProperty(ref _expanded, value); }
     [NotMapped]

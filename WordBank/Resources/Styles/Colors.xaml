@@ -5,7 +5,7 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <Color x:Key="Primary">#FF2D8EFF</Color>
-    <Color x:Key="Secondary">#FFFFEEFF</Color>
+    <Color x:Key="Secondary">#FFE07070</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
     <Color x:Key="Background">#00EFEFEF</Color>
     <Color x:Key="White">White</Color>
@@ -43,4 +43,4 @@
     <Color x:Key="Blue200Accent">#72ACF1</Color>
     <Color x:Key="Blue300Accent">#A7CBF6</Color>
 
-<Color x:Key="Positive">#FF13CE66</Color></ResourceDictionary>
+<Color x:Key="Positive">#FF109E56</Color></ResourceDictionary>

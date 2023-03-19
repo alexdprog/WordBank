@@ -31,7 +31,8 @@ namespace WordBank.ViewModels
         {
             if (AddMode)
             {   
-                WordValue.Time = DateTime.Now;                 _wordbankBaseContext.Words.Add(WordValue);
+                WordValue.Time = DateTime.Now;
+                _wordbankBaseContext.Words.Add(WordValue);
             }
             _wordbankBaseContext.SaveChanges();
             Shell.Current.Navigation.PopAsync();

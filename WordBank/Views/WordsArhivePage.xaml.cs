@@ -3,11 +3,11 @@ using WordBank.ViewModels;
 
 namespace WordBank.Views
 {
-    public partial class WordsPage : ContentPage
+    public partial class WordsArhivePage : ContentPage
     {
-    	public WordsViewModel ViewModel => (WordsViewModel)BindingContext;
+    	public new WordsArhiveViewModel ViewModel => (WordsArhiveViewModel)BindingContext;
 
-        public WordsPage(WordsViewModel viewModel)
+        public WordsArhivePage(WordsArhiveViewModel viewModel)
         {
             BindingContext = viewModel;
             InitializeComponent();
@@ -16,14 +16,15 @@ namespace WordBank.Views
         protected override void OnNavigatedTo(NavigatedToEventArgs args)
         {
             base.OnNavigatedTo(args);
-            Task.Run(() => ViewModel.OnNavigatedTo());
+            ViewModel.OnNavigatedTo();
         }
-                        private void Switch_Toggled(object sender, ToggledEventArgs e)
+        
+        private void Switch_Toggled(object sender, ToggledEventArgs e)
         {
             if (ViewModel.ToggledCommand.CanExecute(sender))
             {
                 ViewModel.ToggledCommand.Execute(this);
             }
         }
-            }
+    }
 }

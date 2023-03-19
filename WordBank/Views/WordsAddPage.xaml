@@ -13,5 +13,5 @@
         <Label Text="Sample" />
         <Entry x:Name="EntrySample" Text="{Binding WordValue.Sample}" />
     <HorizontalStackLayout HorizontalOptions="End" Padding="0,8,0,0" Spacing="8">
-        <Button BackgroundColor="Transparent" BorderColor="Gray" BorderWidth="1" Command="{Binding OnCancelCommand}" Text="Cancel" WidthRequest="120" />
-        <Button x:Name="ApplyButton" BackgroundColor="{StaticResource Positive}" Command="{Binding OnAcceptCommand}" Text="{Binding ApplyName}" WidthRequest="120" /></HorizontalStackLayout></VerticalStackLayout></ContentPage>
+        <Button BackgroundColor="Transparent" TextColor="{ AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}" BorderColor="Gray" BorderWidth="1" Command="{Binding OnCancelCommand}" Text="Cancel" WidthRequest="120" />
+        <Button x:Name="ApplyButton" BackgroundColor="{StaticResource Positive}" TextColor="{StaticResource Gray900}" Command="{Binding OnAcceptCommand}" Text="{Binding ApplyName}" WidthRequest="120" /></HorizontalStackLayout></VerticalStackLayout></ContentPage>

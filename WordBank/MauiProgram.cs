@@ -44,7 +44,9 @@ public static class MauiProgram
 		services.AddSingleton<AboutViewModel>();
         services.AddSingleton<WordsViewModel>();
 		services.AddSingleton<WordsPage>();
-        services.AddSingleton<WordsAddViewModel>();
+				services.AddSingleton<WordsArhiveViewModel>();
+		services.AddSingleton<WordsArhivePage>();
+		        services.AddSingleton<WordsAddViewModel>();
 		services.AddSingleton<WordsAddPage>();
 			}
 }

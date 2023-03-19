@@ -17,7 +17,7 @@ namespace WordBank.ViewModels
 
         async void Navigate(string pageName)
         {
-           await Shell.Current.GoToAsync(pageName);
+           await Shell.Current.GoToAsync("//" + pageName);
         }
     }
 }

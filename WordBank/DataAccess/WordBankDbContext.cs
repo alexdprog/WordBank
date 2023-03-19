@@ -49,5 +49,6 @@ namespace WordBank.DataAccess
             public string Translation { get; set; }
             public string Sample { get; set; }
             public string Time { get; set; }
+            public string Done { get; set; }
         }
         }
