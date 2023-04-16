@@ -21,7 +21,7 @@ namespace WordBank.ViewModels
         /// <summary>
         /// Calls when Navigatet to page
         /// </summary>
-        public virtual async void  OnNavigatedTo()
+        public virtual async Task  OnNavigatedTo()
         {
             await LoadPage(
               async () =>

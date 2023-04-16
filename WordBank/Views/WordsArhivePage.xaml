@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ContentPage x:Class="WordBank.Views.WordsArhivePage" x:Name="WordsArhivePageName" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit" Title="Learned" xmlns:viewModels="clr-namespace:WordBank.ViewModels;assembly=WordBank">
-	<Grid RowDefinitions="1*, 52" Padding="{StaticResource ApplicationRootLayoutThicknes}" HorizontalOptions="StartAndExpand" VerticalOptions="Fill">
+	<Grid RowDefinitions="1*" Padding="{StaticResource ApplicationRootLayoutThicknes}" HorizontalOptions="Fill" VerticalOptions="Fill">
 		<ActivityIndicator HorizontalOptions="Center" IsRunning="{Binding Busy}" IsVisible="{Binding Busy}" VerticalOptions="CenterAndExpand" />
-
 	<ListView CachingStrategy="RecycleElement" IsVisible="{Binding Ready}" ItemsSource="{Binding WordsList}" HasUnevenRows="True" SelectionMode="None" SeparatorColor="Gray" SeparatorVisibility="Default" IsGroupingEnabled="True">
     <ListView.ItemTemplate>
         <DataTemplate>
@@ -14,5 +13,4 @@
         <Grid ColumnDefinitions="Auto, 1*"><Label WidthRequest="80" Style="{StaticResource SubDataLabelStyle}" Text="Description:" TextColor="{StaticResource Secondary}" VerticalOptions="Center" /><Label BackgroundColor="Transparent" Style="{StaticResource DataLabelStyle}" Text="{Binding Description}" VerticalOptions="Center" Grid.Column="1" /></Grid>
         <Grid ColumnDefinitions="Auto, 1*"><Label WidthRequest="80" Style="{StaticResource SubDataLabelStyle}" Text="Translation:" TextColor="{StaticResource Secondary}" VerticalOptions="Center" /><Label BackgroundColor="Transparent" Style="{StaticResource DataLabelStyle}" Text="{Binding Translation}" VerticalOptions="Center" Grid.Column="1" /></Grid>
         <Grid ColumnDefinitions="Auto, 1*"><Label WidthRequest="80" Style="{StaticResource SubDataLabelStyle}" Text="Sample:" TextColor="{StaticResource Secondary}" VerticalOptions="Center" /><Label BackgroundColor="Transparent" Style="{StaticResource DataLabelStyle}" Text="{Binding Sample}" VerticalOptions="Center" Grid.Column="1" /></Grid></VerticalStackLayout></VerticalStackLayout></ViewCell></DataTemplate></ListView.ItemTemplate><ListView.GroupHeaderTemplate><DataTemplate><ViewCell><Grid ColumnDefinitions="40, 1*" Padding="0,4,0,0"><Image Source="group.png" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="24" /><Label Grid.Column="1" BackgroundColor="Transparent" FontSize="14" HorizontalOptions="Start" Text="{Binding Name}" TextColor="{StaticResource Primary}" VerticalOptions="Center" /></Grid></ViewCell></DataTemplate></ListView.GroupHeaderTemplate></ListView></Grid>
-
 </ContentPage>

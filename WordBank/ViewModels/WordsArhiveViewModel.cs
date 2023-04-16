@@ -36,16 +36,13 @@ namespace WordBank.ViewModels
 
         
         
-        public override async void OnNavigatedTo()
-        { 
-            CanToggled= false;
-            base.OnNavigatedTo();
-            var groups = _wordbankBaseContext.Words.Where(t => t.Done).OrderByDescending(w => w.Time).ToList().
+        public override async Task Reload()
+        {
+            CanToggled = false;            var groups = _wordbankBaseContext.Words.Where(t => t.Done).OrderByDescending(w => w.Time).ToList().
                 GroupBy(_ => _.Time.Date).
                 Select(g => new WordsGroup(g.Key, g.ToList()));
             WordsList = new ObservableCollection<WordsGroup>(groups);
-             CanToggled = true;
-        }
+                        CanToggled = true;        }
         
         private void DeleteExecute(Word word)
         {
