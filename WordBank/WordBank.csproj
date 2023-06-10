@@ -29,6 +29,56 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<AssemblyVersion>1.0.0.1</AssemblyVersion>
+		<FileVersion>1.0.0.1</FileVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-maccatalyst|AnyCPU'">
+	  <ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationTitle>Simple WordBank</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationTitle>Simple WordBank</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android33.0|AnyCPU'">
+	  <ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationTitle>Simple WordBank</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationTitle>Simple WordBank</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-maccatalyst|AnyCPU'">
+	  <ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationTitle>Simple WordBank</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+	  <ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationTitle>Simple WordBank</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android33.0|AnyCPU'">
+	  <ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationTitle>Simple WordBank</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationTitle>Simple WordBank</ApplicationTitle>
 	</PropertyGroup>
 
   <ItemGroup>

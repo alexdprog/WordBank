@@ -1,19 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage x:Class="WordBank.Views.WordsPage" x:Name="WordsPageName" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit" Title="Words" xmlns:viewModels="clr-namespace:WordBank.ViewModels;assembly=WordBank">
-	<Grid RowDefinitions="1*, 52" Padding="{StaticResource ApplicationRootLayoutThicknes}" HorizontalOptions="Fill" VerticalOptions="Fill">
-		<ActivityIndicator HorizontalOptions="Center" IsRunning="{Binding Busy}" IsVisible="{Binding Busy}" VerticalOptions="CenterAndExpand" />
-	<ListView CachingStrategy="RecycleElement" IsVisible="{Binding Ready}" ItemsSource="{Binding WordsList}" HasUnevenRows="True" SelectionMode="None" SeparatorColor="Gray" SeparatorVisibility="Default" IsGroupingEnabled="True">
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <ViewCell>
-                <VerticalStackLayout Padding="0,6,0,6"><Grid ColumnDefinitions="40,1*,40,40" ColumnSpacing="8"><CheckBox BackgroundColor="Transparent" IsEnabled="True" IsChecked="{Binding Done}" VerticalOptions="Center" Grid.Column="0"><CheckBox.Behaviors><toolkit:EventToCommandBehavior Command="{Binding Source={x:Reference WordsPageName}, Path=ViewModel.ToggledCommand}" CommandParameter="{Binding .}" EventName="CheckedChanged" /></CheckBox.Behaviors></CheckBox><Label BackgroundColor="Transparent" Style="{StaticResource DataLabelStyle}" Text="{Binding WordName}" VerticalOptions="Center" Grid.Column="1" />
-                <Image Grid.Column="2" Source="edit.png" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="24"><Image.GestureRecognizers><TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:WordsViewModel}}, Path=EditCommand}" CommandParameter="{Binding .}" /></Image.GestureRecognizers></Image>
-                <Image Grid.Column="3" Source="delete.png" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="24"><Image.GestureRecognizers><TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:WordsViewModel}}, Path=DeleteCommand}" CommandParameter="{Binding .}" /></Image.GestureRecognizers></Image>
-            <Grid.GestureRecognizers><TapGestureRecognizer Command="{Binding OnExpand}" /></Grid.GestureRecognizers></Grid><VerticalStackLayout Padding="8,0,0,0" IsVisible="{Binding Expanded}">
-        <Grid ColumnDefinitions="Auto, 1*"><Label WidthRequest="80" Style="{StaticResource SubDataLabelStyle}" Text="Description:" TextColor="{StaticResource Secondary}" VerticalOptions="Center" /><Label BackgroundColor="Transparent" Style="{StaticResource DataLabelStyle}" Text="{Binding Description}" VerticalOptions="Center" Grid.Column="1" /></Grid>
-        <Grid ColumnDefinitions="Auto, 1*"><Label WidthRequest="80" Style="{StaticResource SubDataLabelStyle}" Text="Translation:" TextColor="{StaticResource Secondary}" VerticalOptions="Center" /><Label BackgroundColor="Transparent" Style="{StaticResource DataLabelStyle}" Text="{Binding Translation}" VerticalOptions="Center" Grid.Column="1" /></Grid>
-        <Grid ColumnDefinitions="Auto, 1*"><Label WidthRequest="80" Style="{StaticResource SubDataLabelStyle}" Text="Sample:" TextColor="{StaticResource Secondary}" VerticalOptions="Center" /><Label BackgroundColor="Transparent" Style="{StaticResource DataLabelStyle}" Text="{Binding Sample}" VerticalOptions="Center" Grid.Column="1" /></Grid></VerticalStackLayout></VerticalStackLayout></ViewCell></DataTemplate></ListView.ItemTemplate><ListView.GroupHeaderTemplate><DataTemplate><ViewCell><Grid ColumnDefinitions="40, 1*" Padding="0,4,0,0"><Image Source="group.png" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="24" /><Label Grid.Column="1" BackgroundColor="Transparent" FontSize="14" HorizontalOptions="Start" Text="{Binding Name}" TextColor="{StaticResource Primary}" VerticalOptions="Center" /></Grid></ViewCell></DataTemplate></ListView.GroupHeaderTemplate></ListView>
-    <ImageButton Aspect="AspectFit" BackgroundColor="Transparent" Command="{Binding AddCommand}" HeightRequest="48" HorizontalOptions="Center" Grid.Row="1" Source="add_circle.png" WidthRequest="48">
-    <ImageButton.Shadow><Shadow Brush="Gray" Opacity="{AppThemeBinding Light='0.8', Dark='0.0'}" Radius="48" Offset="8,8" /></ImageButton.Shadow></ImageButton></Grid>
+<ContentPage
+    x:Class="WordBank.Views.WordsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewModels="clr-namespace:WordBank.ViewModels;assembly=WordBank"
+    x:Name="WordsPageName"
+    Title="Words">
+    <Grid
+        Padding="{StaticResource ApplicationRootLayoutThicknes}"
+        HorizontalOptions="Fill"
+        RowDefinitions="1*, 52"
+        VerticalOptions="Fill">
+        <ActivityIndicator
+            HorizontalOptions="Center"
+            IsRunning="{Binding Busy}"
+            IsVisible="{Binding Busy}"
+            VerticalOptions="CenterAndExpand" />
+        <ListView
+            CachingStrategy="RecycleElement"
+            HasUnevenRows="True"
+            IsGroupingEnabled="True"
+            IsVisible="{Binding Ready}"
+            ItemsSource="{Binding WordsList}"
+            SelectionMode="None"
+            SeparatorColor="Gray"
+            SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="0,6,0,6">
+                            <Grid ColumnDefinitions="40,1*,40,40" ColumnSpacing="8">
+                                <CheckBox
+                                    Grid.Column="0"
+                                    BackgroundColor="Transparent"
+                                    IsChecked="{Binding Done}"
+                                    IsEnabled="True"
+                                    VerticalOptions="Center">
+                                    <CheckBox.Behaviors>
+                                        <toolkit:EventToCommandBehavior
+                                            Command="{Binding Source={x:Reference WordsPageName}, Path=ViewModel.ToggledCommand}"
+                                            CommandParameter="{Binding .}"
+                                            EventName="CheckedChanged" />
+                                    </CheckBox.Behaviors>
+                                </CheckBox>
+                                <Label
+                                    Grid.Column="1"
+                                    BackgroundColor="Transparent"
+                                    Style="{StaticResource DataLabelStyle}"
+                                    Text="{Binding WordName}"
+                                    VerticalOptions="Center" />
+                                <Image
+                                    Grid.Column="2"
+                                    HorizontalOptions="Center"
+                                    Source="edit.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="24">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:WordsViewModel}}, Path=EditCommand}" CommandParameter="{Binding .}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Image
+                                    Grid.Column="3"
+                                    HorizontalOptions="Center"
+                                    Source="delete.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="24">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:WordsViewModel}}, Path=DeleteCommand}" CommandParameter="{Binding .}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OnExpand}" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                            <VerticalStackLayout Padding="8,0,0,0" IsVisible="{Binding Expanded}">
+                                <Grid ColumnDefinitions="Auto, 1*">
+                                    <Label
+                                        Style="{StaticResource SubDataLabelStyle}"
+                                        Text="Description:"
+                                        TextColor="{StaticResource Secondary}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="80" />
+                                    <Label
+                                        Grid.Column="1"
+                                        BackgroundColor="Transparent"
+                                        Style="{StaticResource DataLabelStyle}"
+                                        Text="{Binding Description}"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                                <Grid ColumnDefinitions="Auto, 1*">
+                                    <Label
+                                        Style="{StaticResource SubDataLabelStyle}"
+                                        Text="Translation:"
+                                        TextColor="{StaticResource Secondary}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="80" />
+                                    <Label
+                                        Grid.Column="1"
+                                        BackgroundColor="Transparent"
+                                        Style="{StaticResource DataLabelStyle}"
+                                        Text="{Binding Translation}"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                                <Grid ColumnDefinitions="Auto, 1*">
+                                    <Label
+                                        Style="{StaticResource SubDataLabelStyle}"
+                                        Text="Sample:"
+                                        TextColor="{StaticResource Secondary}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="80" />
+                                    <Label
+                                        Grid.Column="1"
+                                        BackgroundColor="Transparent"
+                                        Style="{StaticResource DataLabelStyle}"
+                                        Text="{Binding Sample}"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="0,4,0,0" ColumnDefinitions="40, 1*">
+                            <Image
+                                HorizontalOptions="Center"
+                                Source="group.png"
+                                VerticalOptions="Center"
+                                WidthRequest="24" />
+                            <Label
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                FontSize="14"
+                                HorizontalOptions="Start"
+                                Text="{Binding Name}"
+                                TextColor="{StaticResource Primary}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+        </ListView>
+        <ImageButton
+            Grid.Row="1"
+            Aspect="AspectFit"
+            BackgroundColor="Transparent"
+            Command="{Binding AddCommand}"
+            HeightRequest="48"
+            HorizontalOptions="Center"
+            Source="add_circle.png"
+            WidthRequest="48">
+            <ImageButton.Shadow>
+                <Shadow
+                    Brush="Gray"
+                    Opacity="{AppThemeBinding Light='0.8',
+                                              Dark='0.0'}"
+                    Radius="48"
+                    Offset="8,8" />
+            </ImageButton.Shadow>
+        </ImageButton>
+    </Grid>
 </ContentPage>

@@ -1,10 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage x:Class="WordBank.Views.WordsAddPage" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit" Title="Add your Words">
-
-
+<ContentPage
+    x:Class="WordBank.Views.WordsAddPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="Add your Words">
     <VerticalStackLayout Margin="16">
-        <Label Text="WordName" />
+        <Label Text="Word" />
         <Entry x:Name="EntryWordName" Text="{Binding WordValue.WordName}" />
         <Label Text="Description" />
         <Entry x:Name="EntryDescription" Text="{Binding WordValue.Description}" />
@@ -12,6 +15,26 @@
         <Entry x:Name="EntryTranslation" Text="{Binding WordValue.Translation}" />
         <Label Text="Sample" />
         <Entry x:Name="EntrySample" Text="{Binding WordValue.Sample}" />
-    <HorizontalStackLayout HorizontalOptions="End" Padding="0,8,0,0" Spacing="8">
-        <Button BackgroundColor="Transparent" TextColor="{ AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}" BorderColor="Gray" BorderWidth="1" Command="{Binding OnCancelCommand}" Text="Cancel" WidthRequest="120" />
-        <Button x:Name="ApplyButton" BackgroundColor="{StaticResource Positive}" TextColor="{StaticResource Gray900}" Command="{Binding OnAcceptCommand}" Text="{Binding ApplyName}" WidthRequest="120" /></HorizontalStackLayout></VerticalStackLayout></ContentPage>
+        <HorizontalStackLayout
+            Padding="0,8,0,0"
+            HorizontalOptions="End"
+            Spacing="8">
+            <Button
+                BackgroundColor="Transparent"
+                BorderColor="Gray"
+                BorderWidth="1"
+                Command="{Binding OnCancelCommand}"
+                Text="Cancel"
+                TextColor="{AppThemeBinding Light={StaticResource Gray900},
+                                            Dark={StaticResource Gray100}}"
+                WidthRequest="120" />
+            <Button
+                x:Name="ApplyButton"
+                BackgroundColor="{StaticResource Positive}"
+                Command="{Binding OnAcceptCommand}"
+                Text="{Binding ApplyName}"
+                TextColor="{StaticResource Gray900}"
+                WidthRequest="120" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

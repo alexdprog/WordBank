@@ -5,5 +5,5 @@
 <svg width="640" height="640" viewBox="0 0 640 640" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
 
     <path d="M320 100.64L152.8 191.84L213.6 224.976L213.6 316.176L320 374.24L426.4 316.176L426.4 224.976L456.8 208.408L456.8 313.44L487.2 313.44L487.2 191.84L320 100.64ZM423.664 191.84L320 248.384L216.336 191.84L320 135.296L423.664 191.84ZM396 298.088L320 339.584L244 298.088L244 241.544L320 283.04L396 241.544L396 298.088L396 298.088Z" fill="White" />
-    <text x="50%" y="70%" text-anchor="middle" font-size="64" fill="White">WordBank</text>
-    <text x="50%" y="90%" text-anchor="middle" font-size="64" fill="White">(by MAUI generator)</text></svg>
+    <text x="50%" y="90%" text-anchor="middle" font-size="72" fill="White">Simple WordBank</text>
+</svg>
